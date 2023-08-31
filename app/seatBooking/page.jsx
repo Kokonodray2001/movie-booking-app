@@ -6,6 +6,8 @@ import SeatPrice from "../components/SeatPrice";
 import SeatBookingHeader from "../components/SeatBookingHeader";
 import BookSeat from "../components/BookSeat";
 import { ticketContext } from "../ticketContextProvider";
+import { useRouter } from "next/navigation";
+
 const bookingContext = createContext();
 export default function page() {
   const { tickets, setTickets } = useContext(ticketContext);
@@ -19,6 +21,7 @@ export default function page() {
     //console.log(tickets);
     //console.log(booking);
   }, [tickets]);
+
   return (
     <bookingContext.Provider value={{ booking, setBooking }}>
       {" "}

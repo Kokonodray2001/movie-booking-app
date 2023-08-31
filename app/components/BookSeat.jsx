@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { ticketContext } from "../ticketContextProvider";
 import { bookingContext } from "../seatBooking/page";
+import Link from "next/link";
 
 export default function BookSeat() {
   const { tickets } = useContext(ticketContext);
@@ -25,9 +26,11 @@ export default function BookSeat() {
         </span>
       </div>
       <div>
-        <button className="hover:bg-sky-blue  shadow-black shadow-md text-2xl text-white bg-primary-blue px-20 py-2 rounded-md">
-          Book Seats
-        </button>
+        <Link href={"/payment"}>
+          <button className="hover:bg-sky-blue  shadow-black shadow-md text-2xl text-white bg-primary-blue px-20 py-2 rounded-md">
+            Book Seats
+          </button>
+        </Link>
       </div>
     </div>
   );
