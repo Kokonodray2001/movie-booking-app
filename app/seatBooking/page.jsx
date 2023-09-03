@@ -5,7 +5,7 @@ import RowSeats from "../components/RowSeats";
 import SeatPrice from "../components/SeatPrice";
 import SeatBookingHeader from "../components/SeatBookingHeader";
 import BookSeat from "../components/BookSeat";
-import { ticketContext } from "../ticketContextProvider";
+import { ticketContext } from "../Context";
 import { useRouter } from "next/navigation";
 
 const bookingContext = createContext();
@@ -18,7 +18,7 @@ export default function page() {
     total: 0,
   });
   useEffect(() => {
-    //console.log(tickets);
+    console.log(tickets);
     //console.log(booking);
   }, [tickets]);
 

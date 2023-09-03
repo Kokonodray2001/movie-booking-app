@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
-import { ticketContext } from "../ticketContextProvider";
+import { ticketContext } from "../Context";
 import { bookingContext } from "../seatBooking/page";
 import Link from "next/link";
 

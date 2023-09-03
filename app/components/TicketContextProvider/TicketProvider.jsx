@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import { ticketContext } from "@/app/ticketContextProvider";
+import { ticketContext } from "@/app/Context";
 
 export default function TicketProvider({ children }) {
   const [tickets, setTickets] = useState([]);
