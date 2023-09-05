@@ -16,7 +16,7 @@ module.exports = {
         "primary-yellow": "rgb(255, 221, 0)",
         "primary-blue": "rgb(0, 0, 93)",
         "sky-blue": "rgb(2, 153, 247)",
-        "light-blue": "rgb(2, 0, 141,0.1)",
+        "light-blue": "rgb(2, 0, 141)",
       },
     },
   },

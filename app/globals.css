@@ -23,7 +23,14 @@
 .time-slot-marker{
   @apply mr-2 py-1 px-2.5  border-2 rounded-md ml-4
 }
+.back-ground-img-seacrch-bar{
+  background-image: url('https://images.unsplash.com/photo-1620121692029-d088224ddc74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBkZXNpZ24lMjBibHVlfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60');
 
+}
+.back-ground-img-movieComp{
+  background-image: url('https://images.unsplash.com/photo-1620121692029-d088224ddc74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGJhY2tncm91bmQlMjBkZXNpZ24lMjBibHVlfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60');
+
+}
 .a{
-  color: rgb(2, 153, 247);
+  color: rgba(12, 167, 245, 0.447);
 }
