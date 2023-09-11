@@ -18,7 +18,7 @@ export default function SeatBookingHeader({
   // useEffect(() => {}, [timeSlot]);
   return (
     <div className="seat-booking-header  ">
-      <div id="flim-name-bar" className="flex   bg-primary-blue text-white">
+      <div id="flim-name-bar" className="flex  gradient-col text-white">
         <Image src="/assets/icons/logo.svg" alt="" width={100} height={80} />
         <div
           id="flimdetails"

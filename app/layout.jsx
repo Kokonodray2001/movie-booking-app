@@ -1,4 +1,5 @@
 import "./globals.css";
+import MovieCompFooter from "./components/MovieCompFooter";
 import AppProvider from "./components/AppProvider/AppProvider";
 export const metadata = {
   title: "movie-app",
@@ -10,6 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <AppProvider children={children} />
+        <MovieCompFooter></MovieCompFooter>
       </body>
     </html>
   );

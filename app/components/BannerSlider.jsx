@@ -10,7 +10,7 @@ const sliderItems = [
   },
   {
     id: 2,
-    imageUrl: "/assets/images/tb2.jpg",
+    imageUrl: "/assets/images/tb2.jpeg",
     caption: "Banner 2",
   },
   {
@@ -27,11 +27,9 @@ export default function BannerSlider() {
         {sliderItems.map((image) => (
           <div key={image.id}>
             <div
-              className="flex items-center justify-center h-72 bg-no-repeat bg-cover bg-center   "
+              className="flex w-full items-center justify-center h-80 bg-no-repeat bg-contain bg-center hover:cursor-pointer  "
               style={{ backgroundImage: `url(${image.imageUrl})` }}
-            >
-              <span>{image.caption}</span>
-            </div>
+            ></div>
           </div>
         ))}
       </Slide>
