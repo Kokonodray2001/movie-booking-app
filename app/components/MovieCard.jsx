@@ -20,7 +20,6 @@ export default function MovieCard() {
       .get(`http://localhost:8000/api/getPosters/${selectedMovie.name}`)
       .then((response) => {
         setPosters(response.data);
-        console.log(posters);
       })
       .catch((err) => {
         console.log(err);

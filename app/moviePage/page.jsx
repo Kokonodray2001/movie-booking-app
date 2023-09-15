@@ -11,14 +11,14 @@ export default function page() {
       .get("http://localhost:8000/theater/all")
       .then((response) => {
         setTheaters(response.data);
-        console.log(theaters);
+        // console.log(theaters);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
   useEffect(() => {
-    console.log(theaters);
+    // console.log(theaters);
   }, [theaters]);
   return (
     <div className="w-full flex flex-col items-center justify-center">

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import { theaterContext } from "../Context";
+import { locationContext } from "../Context";
 
 const cities = ["Kolkata", "Mumbai", "Delhi", "Bangalore"];
 var count = 0;
@@ -21,7 +22,7 @@ export default function SelectCity() {
   ]);
   const { theaters, setTheaters } = useContext(theaterContext);
   const [toggle, setToggle] = useState();
-  const [location, setLocation] = useState();
+  const { location, setLocation } = useContext(locationContext);
   useEffect(() => {
     // filteredT = [
     //   { name: "Cineplex Plaza", city: "Kolkata" },

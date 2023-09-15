@@ -5,22 +5,24 @@ import RowSeats from "../components/RowSeats";
 import SeatPrice from "../components/SeatPrice";
 import SeatBookingHeader from "../components/SeatBookingHeader";
 import BookSeat from "../components/BookSeat";
+import { selectedMovieContext } from "../Context";
+import { locationContext } from "../Context";
 import { ticketContext } from "../Context";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 
 const bookingContext = createContext();
 export default function page() {
   const { tickets, setTickets } = useContext(ticketContext);
+  const { selectedMovie, setSelectedMovie } = useContext(selectedMovieContext);
+  const { location, setlocation } = useContext(locationContext);
   const [booking, setBooking] = useState({
     plat: 0,
     gold: 0,
     silver: 0,
     total: 0,
+    time: "",
   });
-  useEffect(() => {
-    console.log(tickets);
-    //console.log(booking);
-  }, [tickets]);
 
   return (
     <bookingContext.Provider value={{ booking, setBooking }}>
@@ -30,13 +32,7 @@ export default function page() {
         className="flex flex-col items-center justify-center"
       >
         <div id="movie-details" className="w-full ">
-          <SeatBookingHeader
-            flimName={"City Of God • 2D • Latin"}
-            flimDate="25 Aug"
-            flimLocation="INOX City Center , Haldia"
-            flimTime={["12:30 AM", "04:20 PM", "06:30 PM", "09:30 PM"]}
-            flimDay="Sat"
-          />
+          <SeatBookingHeader />
         </div>
 
         <div

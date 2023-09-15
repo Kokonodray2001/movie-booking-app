@@ -1,21 +1,72 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Image from "next/image";
+import { locationContext, selectedMovieContext } from "../Context";
+import { ticketContext } from "../Context";
+import { bookingContext } from "../seatBooking/page";
+import { PreBookedSeatContext } from "../Context";
+import axios from "axios";
 
-export default function SeatBookingHeader({
-  flimName,
-  flimDate,
-  flimTime,
-  flimDay,
-  flimLocation,
-}) {
-  const onClickSlot = (newtimeSlot) => {
-    setTimeSlot(newtimeSlot);
-  };
+const date = new Date();
+const dayOfWeek = date.toLocaleDateString("en-US", { weekday: "long" });
+const dayOfMonth = date.getDate();
+const monthName = date.toLocaleDateString("en-US", { month: "long" });
+
+export default function SeatBookingHeader({}) {
+  const { booking, setBooking } = useContext(bookingContext);
+  const { tickets, setTickets } = useContext(ticketContext);
+  const { selectedMovie, setSelectedMovie } = useContext(selectedMovieContext);
+  const { location, setlocation } = useContext(locationContext);
+  const { preBookedSeat, setPreBookedSeat } = useContext(PreBookedSeatContext);
+  const flimTime = selectedMovie.timeSlots.split(",");
 
   const [timeSlot, setTimeSlot] = useState(flimTime[0]);
 
-  // useEffect(() => {}, [timeSlot]);
+  const onClickSlot = (newtimeSlot) => {
+    setTimeSlot(newtimeSlot);
+    const updateTime = booking;
+    updateTime.time = newtimeSlot;
+    setBooking(updateTime);
+  };
+
+  useEffect(() => {
+    //const flimTime = selectedMovie.timeSlots.split(", ");
+    const updateTime = booking;
+    updateTime.time = selectedMovie.timeSlots.substring(0, 7);
+    setBooking(updateTime);
+    console.log(selectedMovie.timeSlots.substring(0, 7));
+    const tempTimeSlot = timeSlot;
+    setTimeSlot(tempTimeSlot);
+  }, []);
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:8000/seats/checkSeats?movie=${selectedMovie.name}&theater=${location}&time=${timeSlot}`
+      )
+      .then((response) => {
+        const data = {
+          movie: selectedMovie.name,
+          theater: location,
+          time: booking.time,
+          bookedSeats: [],
+        };
+        if (!response.data) {
+          axios
+            .post(`http://localhost:8000/seats/addSeats`, data)
+            .then((response) => {
+              console.log(response.data);
+            })
+            .catch((err) => console.log(err));
+        } else {
+          setPreBookedSeat(response.data.bookedSeats);
+          //console.log(preBookedSeat);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, [timeSlot]);
+  // useEffect(() => {
+  //   console.log(preBookedSeat);
+  // }, [preBookedSeat]);
   return (
     <div className="seat-booking-header  ">
       <div id="flim-name-bar" className="flex  gradient-col text-white">
@@ -25,10 +76,16 @@ export default function SeatBookingHeader({
           className=" flex flex-col w-full items-center  justify-around"
         >
           <div id="fName" className="font-semibold text-3xl">
-            {flimName}
+            {selectedMovie.name +
+              " • " +
+              selectedMovie.type +
+              " • " +
+              selectedMovie.language}
           </div>
           <div id="fDeatils" className=" text-1xl">
-            {flimDate}&nbsp;,&nbsp;{timeSlot}&nbsp;,&nbsp;{flimLocation}
+            {selectedMovie.releaseDate.substring(0, 10)}&nbsp;,&nbsp;{timeSlot}
+            &nbsp;,&nbsp;
+            {location}
           </div>
         </div>
       </div>
@@ -40,9 +97,11 @@ export default function SeatBookingHeader({
         <div id="time-slot" className="flex flex-col items-center md:flex-row ">
           <div className="flex flex-col pr-8">
             <span className="text-lg font-semibold px-2 text-gray-500">
-              {flimDay}
+              {dayOfWeek.substring(0, 3)}
             </span>
-            <span className="text-xl font-semibold px-2">{flimDate}</span>
+            <span className="text-xl font-semibold px-2">
+              {dayOfMonth + " " + monthName.substring(0, 3)}
+            </span>
           </div>
           {flimTime.map((time) => (
             <div

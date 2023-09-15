@@ -3,17 +3,19 @@ import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { ticketContext } from "../Context";
 import { bookingContext } from "../seatBooking/page";
+import { PreBookedSeatContext } from "../Context";
 const seatSet = new Set();
-
 export default function RowSeats({ start, seatPrice }) {
   const { tickets, setTickets } = useContext(ticketContext);
+  const { preBookedSeat, setPreBookedSeat } = useContext(PreBookedSeatContext);
   const [toggle, setToggle] = useState(false);
-  // const [booking, setBooking] = useState({
-  //   plat: 0,
-  //   gold: 0,
-  //   silver: 0,
-  //   total: 0,
-  // });
+  useEffect(() => {
+    seatSet.clear();
+    setTickets([]);
+  }, []);
+  // useEffect(() => {
+  //   console.log(preBookedSeat);
+  // }, [preBookedSeat]);
   const { booking, setBooking } = useContext(bookingContext);
   const seatBookings = (seatNo) => {
     var newbooking = booking;
@@ -42,6 +44,7 @@ export default function RowSeats({ start, seatPrice }) {
         newbooking.total -= seatPrice;
       }
     }
+    // console.log(newbooking);
     setBooking(newbooking);
   };
   const onSelectSeat = (seatNo) => {
@@ -85,6 +88,10 @@ export default function RowSeats({ start, seatPrice }) {
               toggle ? "" : ""
             } ${
               seatSet.has(index + start) ? "bg-primary-blue text-white" : ""
+            } ${
+              preBookedSeat.includes(index + start)
+                ? "bg-gray-500  border-gray-500 pointer-events-none"
+                : ""
             }`}
           >
             {index + start}
@@ -96,6 +103,10 @@ export default function RowSeats({ start, seatPrice }) {
               toggle ? "" : ""
             } ${
               seatSet.has(index + start) ? "bg-primary-blue text-white" : ""
+            }${
+              preBookedSeat.includes(index + start)
+                ? "bg-gray-500  border-gray-500 pointer-events-none"
+                : ""
             }`}
           >
             {index + start}

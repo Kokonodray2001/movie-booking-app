@@ -110,7 +110,7 @@ export default function SearchBar() {
                     w-11/12 p-10 m-5  "
       >
         {movies.map((movie, index) => (
-          <div className="flex flex-col justify-center items-center rounded-lg group ">
+          <div className="flex flex-col justify-center items-center rounded-lg group shadow-md shadow-white">
             <div
               className=" flex flex-col  relative justify-end
                             group
