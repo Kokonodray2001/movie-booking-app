@@ -63,6 +63,14 @@ export default function SeatBookingHeader({}) {
         }
       })
       .catch((err) => console.log(err));
+    setBooking({
+      plat: 0,
+      gold: 0,
+      silver: 0,
+      total: 0,
+      time: "",
+    });
+    setTickets([]);
   }, [timeSlot]);
   // useEffect(() => {
   //   console.log(preBookedSeat);

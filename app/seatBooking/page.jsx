@@ -41,10 +41,10 @@ export default function page() {
         >
           <div className="flex flex-col justify-center m-2  overflow-x-auto  overflow-hidden">
             <ul id="platinum-seat" className=" w-fit ">
-              <SeatPrice seatType="PLATINUM" seatPrice={250} />
+              <SeatPrice seatType="PLATINUM" seatPrice={250} time={"change"} />
               {Array.from({ length: 2 }, (_, index) => (
                 <li>
-                  <RowSeats seatPrice={250} start={20 * index} />
+                  <RowSeats seatPrice={250} start={20 * index} time={"plat"} />
                 </li>
               ))}
             </ul>

@@ -1,6 +1,7 @@
 "use client";
 import React, { use, useState } from "react";
 import Image from "next/image";
+import Cookies from "js-cookie";
 import { useContext } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { checkout } from "../checkout";
@@ -8,7 +9,9 @@ import { ticketContext } from "../Context";
 import { useEffect } from "react";
 import MovieCompNav from "../components/MovieCompNav";
 import PaymentComp from "../components/PaymentComp";
-
+var goldval = 0;
+var silval = 0;
+var platval = 0;
 export default function page() {
   const [gold, setGold] = useState(0);
   const [silver, setSilver] = useState(0);
@@ -18,33 +21,45 @@ export default function page() {
   const { tickets, setTickets } = useContext(ticketContext);
   useEffect(() => {
     tickets.forEach((element) => {
-      if (element.seatPrice == 180) setGold((preGold) => preGold + 1);
-      else if (element.seatPrice == 250) setPlat((prePlat) => prePlat + 1);
-      else setSilver((preSilver) => preSilver + 1);
+      if (element.seatPrice == 180) {
+        setGold((preGold) => preGold + 1);
+        goldval++;
+      } else if (element.seatPrice == 250) {
+        setPlat((prePlat) => prePlat + 1);
+        platval++;
+      } else {
+        setSilver((preSilver) => preSilver + 1);
+        silval++;
+      }
     });
+    // Create an object with your desired fields and values
 
-    if (session.status === "unauthenticated") {
-      const storedTickets = {
-        goldT: gold,
-        silverT: silver,
-        platT: plat,
+    if (Object.keys(tickets).length != 0) {
+      const myObject = {
+        goldT: goldval,
+        platT: platval,
+        silverT: silval,
       };
-      // Convert the object to a JSON string
-      const userJSON = JSON.stringify(storedTickets);
 
-      // Store the JSON string in localStorage
-      localStorage.setItem("storedTickets", userJSON);
+      // Convert the object to a JSON string
+      const objectJSON = JSON.stringify(myObject);
+
+      // Set the JSON string as a cookie
+      Cookies.set("myCookieName", objectJSON);
     }
-    // Retrieve the JSON string from localStorage
-    const newUserJSON = localStorage.getItem("storedTickets");
+
+    // Retrieve the JSON string from the cookie
+    const newobjectJSON = Cookies.get("myCookieName");
 
     // Parse the JSON string back into an object
-    const newStoredTickets = JSON.parse(newUserJSON);
-    setGold(newStoredTickets.goldT);
-    setPlat(newStoredTickets.platT);
-    setSilver(newStoredTickets.silverT);
+    if (newobjectJSON) {
+      const newmyObject = JSON.parse(newobjectJSON);
 
-    console.log(silver + " " + gold + " " + plat);
+      // Access the values
+      setGold(newmyObject.goldT);
+      setSilver(newmyObject.silverT);
+      setPlat(newmyObject.platT);
+    }
   }, []);
 
   return (

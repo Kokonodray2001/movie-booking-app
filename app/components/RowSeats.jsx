@@ -5,10 +5,12 @@ import { ticketContext } from "../Context";
 import { bookingContext } from "../seatBooking/page";
 import { PreBookedSeatContext } from "../Context";
 const seatSet = new Set();
-export default function RowSeats({ start, seatPrice }) {
+var timeSlot = " ";
+export default function RowSeats({ start, seatPrice, time }) {
   const { tickets, setTickets } = useContext(ticketContext);
   const { preBookedSeat, setPreBookedSeat } = useContext(PreBookedSeatContext);
   const [toggle, setToggle] = useState(false);
+
   useEffect(() => {
     seatSet.clear();
     setTickets([]);
