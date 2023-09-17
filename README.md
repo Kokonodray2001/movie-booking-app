@@ -21,16 +21,22 @@ Express
 Node.js
 MongoDB
 Stripe
+![1](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/55a6a52c-fe90-417a-b597-36d02d6e874d)
+![2](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/429e561a-90ff-4ca0-a1a5-752ec39c76d3)
 
-![1](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/999348bc-febd-4d7d-9520-c9cca93fc657)
-![2](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/6d3843eb-0c58-4c64-859e-c16fb7a91c59)
 
-![3](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/383ebbc2-5e75-4ec2-bbfc-fc8984258c12)
+![3](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/b0365033-cc7e-4aa4-aad0-3371b9fde44f)
 
-![4](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/d772981c-25d1-4298-8a27-9596843c7013)![8](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/c7bfc8b0-e72c-4555-b47f-684cfe41c3e6)
+![4](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/d43ec929-3bf4-400b-890e-984e5f5c2c12)
 
-![5](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/6d335d29-929d-4a78-8949-00cbefc76847)
-![6](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/d15b5925-b432-4543-8c5f-24f64ba6b3d4)
-![7](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/c1bc9d02-e006-444b-ba1b-efd2995b601d)
-![8](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/766d458d-4ba9-4a51-bd7c-2437983d4b88)
-![9](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/4e082ce2-fd28-47be-b8f3-2c8ea8bb6dd0)
+![5](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/a7a59d2e-5a2b-4045-8d9a-cb7a934b23ce)
+
+![6](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/059c64cc-296d-44da-9916-3dbc96716b2d)
+
+![7](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/97d6f7f0-9605-409f-b2e1-5664fadd54fa)
+
+![8](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/6d5df8b2-dfd8-488b-b190-df43c58abd13)
+
+![9](https://github.com/Kokonodray2001/movie-booking-app/assets/64181896/3d7c1484-6657-4234-9388-fdf89c416334)
+
+
